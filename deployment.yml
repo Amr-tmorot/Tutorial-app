@@ -7,6 +7,7 @@ metadata:
     appgw.ingress.kubernetes.io/appgw-ssl-certificate: "<certificate-name>"
     appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
     appgw.ingress.kubernetes.io/connection-draining: "true"
+    appgw.ingress.kubernetes.io/backend-hostname: "<host-name>"
 spec:
   rules:
    - host: <host-name>
