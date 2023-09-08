@@ -35,13 +35,15 @@ Pre-requisite:
 - Create Azure Resources
     - Kubernetes with AGIC
     - Application Gateway
-    - Azure Database for PostgreSQL (single or flexible server)
+    - Azure Database for PostgreSQL (single or flexible server) with database named 'testdb'
 - Change values in deployment.yml
     - Replace value of \<certificate-name> to the name of the certificate added in Listener TLS certificates tab of Application Gateway resource.
     - Replace value of \<host-name> to your desired host name.
     - Replace values of \<username>, \<password>, \<postgres-host> to the username, password and host of Azure Database for PostgreSQL resource.
     - Replace value of \<repository>/\<springboot-image>:\<tag> to your chosen repository, springboot image and tag.
     - Replace value of \<repository>/\<angular-image>:\<tag> to your chosen repository, angular image and tag.
+- Change angular-15-client/src/app/services/tutorial.service.ts
+    - Replace <host-name> to the <host-name> value in deployment.yml
       
 ### Create and push Docker images (Change directory to where the Dockerfile is placed.)
 ```
