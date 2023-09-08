@@ -1,0 +1,109 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend-ingress
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+    appgw.ingress.kubernetes.io/appgw-ssl-certificate: "<certificate-name>
+    appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
+    appgw.ingress.kubernetes.io/connection-draining: "true"
+spec:
+  rules:
+   - host: <host-name>
+     http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port: 
+              number: 80
+      - path: /api/tutorials
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port: 
+              number: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  replicas: 1
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        env:
+          - name: POSTGRES_USER
+            value: <username>
+          - name: POSTGRES_PASSWORD
+            value: <password>
+          - name: POSTGRES_HOST
+            value: <postgres-host>
+        image: <repository>/<springboot-image>:<tag>
+        imagePullPolicy: Always
+      tolerations:
+        - key: "mytaintLinux"
+          operator: "Equal"
+          value: "true"
+          effect: "NoSchedule"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  ports:
+  - port: 8080
+  selector:
+    app: backend
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: frontend 
+spec: 
+  selector: 
+    matchLabels: 
+      app: frontend 
+  template:
+    metadata: 
+      labels: 
+        app: frontend 
+    spec: 
+      containers: 
+      - name: frontend 
+        image: <repository>/<angular-image>:<tag>
+        imagePullPolicy: Always
+        ports: 
+        - containerPort: 80
+      tolerations:
+      - key: "mytaintLinux"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+--- 
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: frontend 
+spec: 
+  selector: 
+    app: frontend 
+  ports: 
+  - protocol: TCP 
+    port: 80 
+    targetPort: 80
