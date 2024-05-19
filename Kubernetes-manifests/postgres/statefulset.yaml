@@ -15,6 +15,9 @@ spec:
       containers:
       - name: postgres
         image: docker.io/postgres:latest
+        envFrom:
+        - secretRef:
+            name: db-secret
         ports:
         - containerPort: 5432
           name: db
