@@ -3,7 +3,9 @@ pipeline {
 
   stages{
     stage("testing jenkins"){
+      steps {
       echo "hello world"
+      }
     }
   }
 }
