@@ -19,5 +19,14 @@ options {
         }
       }
     }
+    stage("Build backend docker image"){
+      steps {
+        dir('Tutorial-app/spring-boot-server'){
+          //the jenkins user on the machine needs to be added to the docker group to avoid getting a permission denied error
+          sh "docker build . -t tmorot/tutorial-backend:v${env.BUILD_NUMBER}"
+      
+        }
+      }
+    }
   }
 }
