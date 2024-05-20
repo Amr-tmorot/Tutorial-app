@@ -2,9 +2,9 @@ pipeline {
   agent any
 
   stages{
-    stage("testing jenkins"){
+    stage("Clone source code repo"){
       steps {
-      echo "hello world"
+      sh 'git clone https://github.com/Amr-tmorot/Tutorial-app.git'
       }
     }
   }
