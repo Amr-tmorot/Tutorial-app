@@ -13,7 +13,7 @@ options {
     stage("Build frontend docker image"){
       steps {
         dir('Tutorial-app/angular-15-client'){
-          sh "docker build . -t tmorot/tutorial-frontend:v${env.BUILD_NUMBER}"
+          sh "sudo docker build . -t tmorot/tutorial-frontend:v${env.BUILD_NUMBER}"
         }
       }
     }
