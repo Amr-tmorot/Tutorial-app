@@ -43,7 +43,7 @@ options {
       steps {
         dir('Tutorial-app/Helm-chart'){
           //using the --set option to override the default value by the new built image
-          sh "helm upgrade --install . tutorial-app --set frontend.deployment.image=docker.io/tmorot/tutorial-frontend:v${env.BUILD_NUMBER} --set backend.deployment.image=docker.io/tmorot/tutorial-backend:v${env.BUILD_NUMBER}"
+          sh "helm upgrade --install tutorial-app . --set frontend.deployment.image=docker.io/tmorot/tutorial-frontend:v${env.BUILD_NUMBER} --set backend.deployment.image=docker.io/tmorot/tutorial-backend:v${env.BUILD_NUMBER}"
       
         }
       }
