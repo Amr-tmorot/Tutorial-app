@@ -13,7 +13,9 @@ options {
     stage("Build frontend docker image"){
       steps {
         dir('Tutorial-app/angular-15-client'){
+          //the jenkins user on the machine needs to be added to the docker group to avoid getting a permission denied error
           sh "docker build . -t tmorot/tutorial-frontend:v${env.BUILD_NUMBER}"
+      
         }
       }
     }
