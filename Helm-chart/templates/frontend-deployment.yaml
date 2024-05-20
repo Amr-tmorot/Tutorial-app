@@ -5,7 +5,7 @@ metadata:
   labels:
     app: frontend
 spec:
-  replicas: 3
+  replicas: {{ .Values.frontend.deployment.replicas }}
   selector:
     matchLabels:
       app: frontend
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: docker.io/tmorot/tutorial-frontend:v1
+        image: {{ .Values.frontend.deployment.image }}
         ports:
         - containerPort: 80

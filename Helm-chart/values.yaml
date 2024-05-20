@@ -1,4 +1,7 @@
 frontend:
+  deployment:
+    image: docker.io/tmorot/tutorial-frontend:v1
+    replicas: 3
 
 
 
@@ -7,3 +10,6 @@ frontend:
 
 
 backend:
+  deployment:
+    image: docker.io/tmorot/tutorial-backend:v1
+    replicas: 3

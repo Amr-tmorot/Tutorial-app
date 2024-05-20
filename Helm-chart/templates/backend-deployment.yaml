@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 3
+  replicas: {{ .Values.backend.deployment.replicas }}
   selector:
     matchLabels:
       app: backend
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: docker.io/tmorot/tutorial-backend:v1
+        image: {{ .Values.backend.deployment.image }}
         envFrom:
         - secretRef:
             name: db-secret
