@@ -28,5 +28,16 @@ options {
         }
       }
     }
+    stage("Push frontend and backend images to dockerhub"){
+      steps {
+      //the jenkins credentials binding plugin is required and you need to add your docker credentials to jenkins creds store
+      withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'dockeruser', passwordVariable: 'dockerpass')]) {
+        sh "docker login -u ${dockeruser} -p ${dockerpass}"
+        sh "docker push tmorot/tutorial-frontend:v${env.BUILD_NUMBER}"
+        sh "docker push tmorot/tutorial-backend:v${env.BUILD_NUMBER}"
+
+}
+    }
+    }
   }
 }
