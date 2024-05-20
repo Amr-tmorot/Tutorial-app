@@ -6,6 +6,7 @@ options {
   stages{
     stage("Clone source code repo"){
       steps {
+      cleanWs()  //cleaning workspace before cloning, this step requires installing the Workspace cleanup plugin
       sh 'git clone https://github.com/Amr-tmorot/Tutorial-app.git'
       }
     }
