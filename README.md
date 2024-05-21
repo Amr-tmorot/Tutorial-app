@@ -52,6 +52,7 @@ This tutorial app can be deployed to Kubernetes in 3 different ways:
 - You can build the images for the frontend and backend using the Dockerfile under each of their source folder. The dockerfiles use a multistage build where the first stage builds the code and the second uses the output artifact (dist folder or jar file) to build the final image. This makes it more easy instead of setting up a dedicated environment for building the code.
 - The reason we deploy the postgres manually in all the methods is that databases are typically not part of automated CI/CD or helm deployments. The frequent changes usually happen on the app microservices (code) which requires frequent deployments.
 - The postgres statefulset manifest doesn't contain a persistent volume for storing data, so it will use an ephemeral emtpydir where data will be wiped out if the pod is deleted. However, it is often a requirement for stateful workloads like DBs to use a persistent storage.
+- It is recommended to use an ingress to expose the app rather than a nodeport.
 - The secret manifest contains env variables used for initializing the postgres database and for setting the backend connection string to the DB, so it must be deployed first before other resources.
 
 
