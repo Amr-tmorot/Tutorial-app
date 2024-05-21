@@ -21,8 +21,8 @@ The application consists of a frontend, backend, and a database :
 This project repo consists of the following:
 - Helm-chart: this is the folder containing the helm chart for deploying the application. It mainly deploys the frontend and backend services.
 - Kubernetes-manifests: this folder contains raw k8s YAML manifest files for each service. It contains 4 subfolders for the frontend, backend, database, and shared resources like secrets.
-- angular-15-client : this folder contains the source for the angular frontend.
-- spring-boot-server: this folder contains the source for the spring boot backend.
+- angular-15-client : this folder contains the source for the angular frontend and the Dockerfile for building the image.
+- spring-boot-server: this folder contains the source for the spring boot backend and the Dockerfile for building the image.
 - Jenkinsfile: This is the Jenkinsfile used for CI/CD pipeline deployment using jenkins
 - README.md file 
 
