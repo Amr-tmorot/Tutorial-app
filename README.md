@@ -40,7 +40,7 @@ This tutorial app can be deployed to Kubernetes in 3 different ways:
 - Step 1: deploy the secret resource under Kubernetes-manifests/shared-resources using kubectl apply -f 
 - Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the statefulset and service files respectively.
 - Step 3: deploy the backend and frontend services using the helm chart under Helm-chart folder, use helm upgrade --install command and it will install all the required resources
--  
+
 ### 3- Automated using Jenkins
 - Step 1: deploy the secret resource under Kubernetes-manifests/shared-resources using kubectl apply -f 
 - Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the statefulset and service files respectively.
