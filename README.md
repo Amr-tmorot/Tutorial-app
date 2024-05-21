@@ -8,6 +8,11 @@
 
 ## Application Architecture
 
+The application consists of a frontend, backend, and a database :
+
+![image](https://github.com/Amr-tmorot/Tutorial-app/assets/88274242/e373387e-e17e-47cd-ac7e-8f02537b5b28)
+
+
 
 ## How this Repo is Organized
 
