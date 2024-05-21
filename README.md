@@ -1,57 +1,21 @@
-# Spring Boot + Angular 15 + PostgreSQL + Kubernetes CRUD example
+# 3-Tier Tutorial Application with Spring Boot + Angular + PostgreSQL
 
-Full-stack Angular 15 + Spring Boot + PostgreSQL CRUD Tutorial Application in that:
 - Each Tutorial has id, title, description, published status.
 - We can create, retrieve, update, delete Tutorials.
 - We can also find Tutorials by title.
 
 ![spring-boot-angular-15-postgresql-example-crud.png](spring-boot-angular-15-postgresql-example-crud.png)
 
-For more detail, please visit:
-> [Spring Boot + Angular 15 + PostgreSQL: CRUD example](https://www.bezkoder.com/spring-boot-angular-15-postgresql/)
+## Application Architecture
 
-Run both Back-end & Front-end in one place:
-> [Integrate Angular with Spring Boot Rest API](https://www.bezkoder.com/integrate-angular-spring-boot/)
 
-More Practice:
-> [Angular + Spring Boot: File upload example](https://www.bezkoder.com/angular-15-spring-boot-file-upload/)
+## How this Repo is Organized
 
-> [Angular + Spring Boot: JWT Authentication and Authorization example](https://www.bezkoder.com/angular-15-spring-boot-jwt-auth/)
 
-## Run Spring Boot application
-```
-mvn spring-boot:run
-```
-The Spring Boot Server will export API at port `8081`.
+## Deployment Steps
 
-## Run Angular Client
-```
-npm install
-ng serve --port 8081
-```
-
-## Deployment
-Pre-requisite:
-- Create Azure Resources
-    - Kubernetes with AGIC
-    - Application Gateway
-    - Azure Database for PostgreSQL (single or flexible server) with database named 'testdb'
-- Change values in deployment.yml
-    - Replace value of \<certificate-name> to the name of the certificate added in Listener TLS certificates tab of Application Gateway resource.
-    - Replace value of \<host-name> to your desired host name.
-    - Replace values of \<username>, \<password>, \<postgres-host> to the username, password and host of Azure Database for PostgreSQL resource.
-    - Replace value of \<repository>/\<springboot-image>:\<tag> to your chosen repository, springboot image and tag.
-    - Replace value of \<repository>/\<angular-image>:\<tag> to your chosen repository, angular image and tag.
-- Change angular-15-client/src/app/services/tutorial.service.ts
-    - Replace <host-name> to the <host-name> value in deployment.yml
       
-### Create and push Docker images (Change directory to where the Dockerfile is placed.)
-```
-docker build -t <repository>/<image-name>:<tag> .
-docker push <repository>/<image-name>:<tag>
-```
+## Notes
 
-### Create pods, service and ingress resources in Kubernetes (Change directory to where the deployment.yml is placed.)
-```
-kubectl apply -f deployment.yml
-```
+
+
