@@ -53,6 +53,10 @@ This tutorial app can be deployed to Kubernetes in 3 different ways:
 - The postgres statefulset manifest doesn't contain a persistent volume for storing data, so it will use an ephemeral emtpydir where data will be wiped out if the pod is deleted. However, it is often a requirement for stateful workloads like DBs to use a persistent storage.
 - The secret manifest contains env variables used for initializing the postgres database and for setting the backend connection string to the DB, so it must be deployed first before other resources.
 
+
+![image](https://github.com/Amr-tmorot/Tutorial-app/assets/88274242/8f964969-67ab-4df6-8ba7-e72579cd3d97)
+
+
   
 
 
