@@ -1,4 +1,4 @@
-# 3-Tier Tutorial Application with Spring Boot + Angular + PostgreSQL
+# 3-Tier Tutorial Application with Spring Boot + Angular + PostgreSQL on Kubernetes
 
 - Each Tutorial has id, title, description, published status.
 - We can create, retrieve, update, delete Tutorials.
@@ -29,6 +29,16 @@ This project repo consists of the following:
 
 ## Deployment Steps
 
+This tutorial app can be deployed to Kubernetes in 3 different ways:
+### 1- Manually using only the Kubernetes manifests:
+- Step 1: deploy the secret resource under Kubernetes-manifests/shared-resources using kubectl apply -f 
+- Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the deployment and service files respectively.
+- Step 3: deploy the backend service under Kubernetes-manifests/backend, use kubectl apply -f to deploy both the deployment and service files respectively
+- Step 4: deploy the frontend service under Kubernetes-manifests/frontend, use kubectl apply -f to deploy both the deployment and service files respectively.
+
+The app (frontend) should be exposed on a local port (nodeport) on all of the kubernetes cluster nodes 
+### 2- Manually using Helm
+### 3- Automated using Jenkins
 
 
       
