@@ -32,17 +32,23 @@ This project repo consists of the following:
 This tutorial app can be deployed to Kubernetes in 3 different ways:
 ### 1- Manually using only the Kubernetes manifests:
 - Step 1: deploy the secret resource under Kubernetes-manifests/shared-resources using kubectl apply -f 
-- Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the deployment and service files respectively.
-- Step 3: deploy the backend service under Kubernetes-manifests/backend, use kubectl apply -f to deploy both the deployment and service files respectively
-- Step 4: deploy the frontend service under Kubernetes-manifests/frontend, use kubectl apply -f to deploy both the deployment and service files respectively.
-
-The app (frontend) should be exposed on a local port (nodeport) on all of the kubernetes cluster nodes 
+- Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the statefulset and service files respectively.
+- Step 3: deploy the backend service under Kubernetes-manifests/backend, use kubectl apply -f command to deploy both the deployment and service files respectively
+- Step 4: deploy the frontend service under Kubernetes-manifests/frontend, use kubectl apply -f command to deploy both the deployment and service files respectively.
+ 
 ### 2- Manually using Helm
+- Step 1: deploy the secret resource under Kubernetes-manifests/shared-resources using kubectl apply -f 
+- Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the statefulset and service files respectively.
+- Step 3: deploy the backend and frontend services using the helm chart under Helm-chart folder, use helm upgrade --install command and it will install all the required resources
+-  
 ### 3- Automated using Jenkins
-
+- Step 1: deploy the secret resource under Kubernetes-manifests/shared-resources using kubectl apply -f 
+- Step 2: deploy the postgres database under Kubernetes-manifests/postgres, use kubectl apply -f to deploy both the statefulset and service files respectively.
+- Step 3: Use the Jenkinsfile as the pipeline script for your jenkins pipeline to deploy the frontend and backend services
 
       
-## Notes
+### Notes
+- In any of the above deployment methods, the app (frontend) should be exposed on a local port (nodeport) 30163 on all of the kubernetes cluster nodes.
 
 
 
