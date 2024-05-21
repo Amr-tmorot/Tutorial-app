@@ -17,6 +17,8 @@ The application consists of a frontend, backend, and a database :
 - The database used is PostgreSQL with the default port of 5432
 
 ## How this Repo is Organized
+This project repo consists of the following:
+- 
 
 
 ## Deployment Steps
